@@ -7,6 +7,8 @@
 
 
 	<build>
+
+
 		<!-- Source directory configuration -->
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -23,79 +25,34 @@
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
-			<!-- Compiler plugin configures the java version to be usedfor compiling 
+			<!-- Compiler plugin configures the java version to be used for compiling 
 				the code -->
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
 			</plugin>
 
-
-
-			<!-- Post-Man plugin -->
-			<plugin>
-				<groupId>ch.fortysix</groupId>
-				<artifactId>maven-postman-plugin</artifactId>
-				<executions>
-					<execution>
-
-						<id>send a mail</id>
-						<phase>test</phase>
-						<goals>
-							<goal>send-mail</goal>
-						</goals>
-						<inherited>true</inherited>
-
-						<configuration>
-							<!-- From Email address -->
-							<from>mia27dec@gmail.com</from>
-
-							<!-- Email subject -->
-							<subject>Test Automation Report</subject>
-
-							<!-- Fail the build if the mail doesnt reach -->
-							<failonerror>true</failonerror>
-
-							<!-- host -->
-							<mailhost>smtp.gmail.com</mailhost>
-							<!-- port of the host -->
-							<mailport>465</mailport>
-							<mailssl>true</mailssl>
-							<mailAltConfig>true</mailAltConfig>
-
-							<!-- Email Authentication(USername and Password) -->
-							<mailuser>mia27dec@gmail.com</mailuser>
-							<mailpassword>MIA@27dec</mailpassword>
-
-							<receivers>
-								<!-- To Email address -->
-								<receiver>mia27dec@gmail.com</receiver>
-							</receivers>
-
-							<fileSets>
-								<fileSet>
-									<!-- <directory>${basedir}/target/site</directory> <includes> <include>**/surefire-report.html</include> 
-										</includes> -->
-
-									<!-- Report directory Path -->
-									<!-- <directory>"C://Users//irfan//workspace//automationproject//TestReport//Test-Automaton-Report.html"</directory> -->
-									<directory>${basedir}/TestReport/Test-Automaton-Report.html</directory>
-									<includes>
-										<!-- Report file name -->
-										<include>Test-Automaton-Report.html</include>
-									</includes>
-									<!-- Use Regular Expressions like **/*.html if you want all the 
-										html files to send -->
-								</fileSet>
-							</fileSets>
-
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- Post-Man plugin <plugin> <groupId>ch.fortysix</groupId> <artifactId>maven-postman-plugin</artifactId> 
+				<executions> <execution> <id>send a mail</id> <phase>test</phase> <goals> 
+				<goal>send-mail</goal> </goals> <inherited>true</inherited> <configuration> 
+				From Email address <from>mia27dec@gmail.com</from> Email subject <subject>Test 
+				Automation Report</subject> Fail the build if the mail doesnt reach <failonerror>true</failonerror> 
+				host <mailhost>smtp.gmail.com</mailhost> port of the host <mailport>465</mailport> 
+				<mailssl>true</mailssl> <mailAltConfig>true</mailAltConfig> Email Authentication(USername 
+				and Password) <mailuser>mia27dec@gmail.com</mailuser> <mailpassword>MIA@27dec</mailpassword> 
+				<receivers> To Email address <receiver>mia27dec@gmail.com</receiver> </receivers> 
+				<fileSets> <fileSet> <directory>${basedir}/target/site</directory> <includes> 
+				<include>**/surefire-report.html</include> </includes> Report directory Path 
+				<directory>"C://Users//irfan//workspace//automationproject//TestReport//Test-Automaton-Report.html"</directory> 
+				<directory>${basedir}/TestReport/Test-Automaton-Report.html</directory> <includes> 
+				Report file name <include>Test-Automaton-Report.html</include> </includes> 
+				Use Regular Expressions like **/*.html if you want all the html files to 
+				send </fileSet> </fileSets> </configuration> </execution> </executions> </plugin> -->
 
 		</plugins>
 
@@ -150,14 +107,47 @@
 			<scope>compile</scope>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>4.1.2</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope> -->
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured-common -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured-common</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-path</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/xml-path -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>xml-path</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+
 
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
@@ -165,6 +155,53 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+
+
+
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.5.8</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.5</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.directory.studio/org.apache.commons.io -->
+		<dependency>
+			<groupId>org.apache.directory.studio</groupId>
+			<artifactId>org.apache.commons.io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+
 
 
 	</dependencies>

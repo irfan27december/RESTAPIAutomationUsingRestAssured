@@ -13,7 +13,6 @@ import com.utils.URL;
 import io.restassured.response.Response;
 
 public class GetSingleUser {
-	private String sessionID;
 	Response response;
 	GetPropertyValue property = new GetPropertyValue();
 	
