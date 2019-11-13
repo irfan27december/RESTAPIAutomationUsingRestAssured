@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.GetSingleUser">
+      <class name="tests.CreateUser">
         <methods>
-          <include name="getSingleUser"/>
           <include name="setUp"/>
+          <include name="createIssue"/>
         </methods>
-      </class> <!-- tests.GetSingleUser -->
+      </class> <!-- tests.CreateUser -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

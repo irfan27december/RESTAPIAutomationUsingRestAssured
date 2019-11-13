@@ -15,11 +15,22 @@ public class RESTCalls {
 	 */
 
 	private static Logger log = LogManager.getLogger(RESTCalls.class.getName());
+	
 	public static Response GETRequest(String URI) {
 		log.info("Inside GETRequest call");
 		RequestSpecification requestSpecification = RestAssured.given();
 		requestSpecification.contentType(ContentType.JSON);
 		Response response = requestSpecification.get(URI);
+		log.debug(requestSpecification.log().all());
+		return response;
+	}
+	
+	
+	public static Response POSTRequest(String URI, String strJSON) {
+		log.info("Inside POSTRequest call");
+		RequestSpecification requestSpecification = RestAssured.given().body(strJSON);
+		requestSpecification.contentType(ContentType.JSON);
+		Response response = requestSpecification.post(URI);
 		log.debug(requestSpecification.log().all());
 		return response;
 	}
