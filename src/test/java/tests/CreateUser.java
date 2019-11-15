@@ -31,6 +31,7 @@ public class CreateUser {
 		String URI = URL.getEndPoint("/api/users");
 		String createUserPayLaod = PayloadGenerator.generatePayLoadString("CreateUser.json");
 		response = RESTCalls.POSTRequest(URI, createUserPayLaod);
+		System.out.println("Response is"+ response.asString());
 		BaseAssertion.verifyStatusCode(response, 201);
 
 		// First get the JsonPath object instance from the Response interface
