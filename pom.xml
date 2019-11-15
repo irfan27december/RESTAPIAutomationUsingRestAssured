@@ -38,62 +38,72 @@
 			</plugin>
 
 			<!-- Post-Man plugin -->
-		 <plugin>
-			<groupId>ch.fortysix</groupId>
-			<artifactId>maven-postman-plugin</artifactId>
-			<executions>
-				<execution>
-				
-				<id>send a mail</id>
-				<phase>test</phase>
-				<goals>
-				<goal>send-mail</goal>
-				</goals>
-				<inherited>true</inherited>
-				
-				<configuration>
-					<!-- From Email address -->
-					<from>mia27dec@gmail.com</from>
-					
-					<!--  Email subject -->
-					<subject>Test Automation Report</subject>
-					
-					<!-- Fail the build if the mail doesnt reach -->
-					<failonerror>true</failonerror>
-					
-					<!-- host -->
-					<mailhost>smtp.gmail.com</mailhost>
-					<!-- port of the host -->
-					<mailport>465</mailport>
-					<mailssl>true</mailssl>
-					<mailAltConfig>true</mailAltConfig>
-					
-					<!-- Email Authentication(USername and Password) -->
-					<mailuser>mia27dec@gmail.com</mailuser>
-					<mailpassword>MIA@27dec</mailpassword>
-					
-					<receivers>
-						<!-- To Email address -->
-						<receiver>mia27dec@gmail.com</receiver>
-					</receivers>
-					
-					<fileSets>
-					<fileSet>
-						<!-- Report directory Path -->
-						<directory>C://Users//irfan//git//RESTAPIAutomationUsingRestAssured//TestReport</directory>
-						<includes>
-							<!-- Report file name -->
-							<include>Test-Automaton-Report.html</include>
-						</includes>
-						<!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
-						</fileSet>
-					</fileSets>				
-				
-				</configuration>
-				</execution>
-			</executions>
-		</plugin>
-		
+			<plugin>
+				<groupId>ch.fortysix</groupId>
+				<artifactId>maven-postman-plugin</artifactId>
+				<executions>
+					<execution>
+
+						<id>send a mail</id>
+						<phase>test</phase>
+						<goals>
+							<goal>send-mail</goal>
+						</goals>
+						<inherited>true</inherited>
+
+						<configuration>
+							<!-- From Email address -->
+							<from>mia27dec@gmail.com</from>
+
+							<!-- Email subject -->
+							<subject>Test Automation Report</subject>
+
+							<!-- Fail the build if the mail doesnt reach -->
+							<failonerror>true</failonerror>
+
+							<!-- Email Body Content -->
+							<htmlMessage>
+                                    <![CDATA[
+                                    <p>New test build triggered!</p>
+                                    <p>Attached html file contains the test result status</p> 
+                                    ]]>
+							</htmlMessage>
+
+
+							<!-- host -->
+							<mailhost>smtp.gmail.com</mailhost>
+							<!-- port of the host -->
+							<mailport>465</mailport>
+							<mailssl>true</mailssl>
+							<mailAltConfig>true</mailAltConfig>
+
+							<!-- Email Authentication(USername and Password) -->
+							<mailuser>mia27dec@gmail.com</mailuser>
+							<mailpassword>MIA@27dec</mailpassword>
+
+							<receivers>
+								<!-- To Email address -->
+								<receiver>mia27dec@gmail.com</receiver>
+							</receivers>
+
+							<fileSets>
+								<fileSet>
+									<!-- Report directory Path -->
+									<directory>C://Users//irfan//git//RESTAPIAutomationUsingRestAssured//TestReport</directory>
+									<includes>
+										<!-- Report file name -->
+										<include>Test-Automaton-Report.html</include>
+									</includes>
+									<!-- Use Regular Expressions like **/*.html if you want all the 
+										html files to send -->
+								</fileSet>
+							</fileSets>
+
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 
 
@@ -241,6 +251,29 @@
 			<version>2.4</version>
 		</dependency>
 
+
+
+		<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+		<dependency>
+			<groupId>org.uncommons</groupId>
+			<artifactId>reportng</artifactId>
+			<version>1.1.4</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/velocity/velocity-dep -->
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity-dep</artifactId>
+			<version>1.4</version>
+		</dependency>
 
 
 
