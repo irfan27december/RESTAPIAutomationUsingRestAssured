@@ -105,6 +105,11 @@
 								</fileSet>
 							</fileSets>
 
+<!-- 
+							Below line shows report content in mail body
+							<htmlMessageFile>C://Users//irfan//git//RESTAPIAutomationUsingRestAssured//TestReport//Test-Automaton-Report.html</htmlMessageFile>
+
+ -->
 						</configuration>
 					</execution>
 				</executions>
