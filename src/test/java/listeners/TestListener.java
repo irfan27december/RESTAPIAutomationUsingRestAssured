@@ -26,7 +26,9 @@ public class TestListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
-		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
+		//ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
+		//Show exception in the report for the failed test cases
+		ExtentTestManager.getTest().log(Status.FAIL, result.getThrowable().toString());
 	}
 
 	@Override

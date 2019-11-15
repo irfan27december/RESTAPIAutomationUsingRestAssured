@@ -23,6 +23,10 @@
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 						<!-- <suiteXmlFile>testng.xml</suiteXmlFile> -->
 					</suiteXmlFiles>
+					<!-- send email even if tests passes and fails -->
+					<testErrorIgnore>true</testErrorIgnore>
+					<!-- Use below to send email, only if tests fails -->
+					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
 			<!-- Compiler plugin configures the java version to be used for compiling 
@@ -60,6 +64,8 @@
 
 							<!-- Fail the build if the mail doesnt reach -->
 							<failonerror>true</failonerror>
+
+
 
 							<!-- Email Body Content -->
 							<htmlMessage>
